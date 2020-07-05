@@ -1,0 +1,155 @@
+/****************************************************************************
+Menu
+****************************************************************************/
+.menu {
+  background-color: white;
+  position: absolute;
+  display: flex;
+  transition: transform .5s;
+  .bar {
+    background-color: #696969;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      cursor: pointer;
+    }
+    .arrow {
+      border: solid white;
+      display: inline-block;
+      padding: 3px;
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+    }
+  }
+  .content {
+    flex-grow: 1;
+  }
+  &.show {
+    display: block;
+  }
+  &.hide {
+    display: none;
+  }
+
+  /****************************************************************************
+  Slide-up Menu
+  ****************************************************************************/
+  &.up {
+    $height: 90vh;
+    // Position of menu
+    left: 0;
+    top: 100vh - $height;
+    width: 100vw;
+    height: $height;
+    border-radius: 5px 5px 0 0;
+    // Hide the menu
+    transform: translate3d(0, $height, 0);
+    // Close menu bar
+    flex-direction: column;
+    .bar {
+      border-radius: 5px 5px 0 0;
+      height: 25px;
+      .arrow {
+        border-width: 0 3px 3px 0;
+      }
+    }
+    &.open {
+      transform: translate3d(0, 0vh, 0);
+    }
+    &.close {
+      transform: translate3d(0, $height, 0);
+    }
+  }
+
+  /****************************************************************************
+  Slide-down Menu
+  ****************************************************************************/
+  &.down {
+    $height: 90vh;
+    // Position of menu
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: $height;
+    border-radius: 0 0 5px 5px;
+    // Hide the menu
+    transform: translate3d(0, -$height, 0);
+    // Close menu bar
+    flex-direction: column-reverse;
+    .bar {
+      border-radius: 0 0 5px 5px;
+      height: 25px;
+      .arrow {
+        border-width: 3px 0 0 3px;
+      }
+    }
+    &.open {
+      transform: translate3d(0, 0vh, 0);
+    }
+    &.close {
+      transform: translate3d(0, -$height, 0);
+    }
+  }
+
+  /****************************************************************************
+  Slide-left Menu
+  ****************************************************************************/
+  &.left {
+    $width: 90vw;
+    // Position of menu
+    left: 100vw - $width;
+    top: 0;
+    width: $width;
+    height: 100vh;
+    border-radius: 5px 0 0 5px;
+    // Hide the menu
+    transform: translate3d($width, 0, 0);
+    // Close menu bar
+    flex-direction: row;
+    .bar {
+      border-radius: 5px 0 0 5px;
+      width: 25px;
+      .arrow {
+        border-width: 3px 3px 0 0;
+      }
+    }
+    &.open {
+      transform: translate3d(0vw, 0, 0);
+    }
+    &.close {
+      transform: translate3d($width, 0, 0);
+    }
+  }
+
+  /****************************************************************************
+  Slide-right Menu
+  ****************************************************************************/
+  &.right {
+    $width: 90vw;
+    // Position of menu
+    left: 0;
+    top: 0;
+    width: $width;
+    height: 100vh;
+    border-radius: 0 5px 5px 0;
+    // Hide the menu
+    transform: translate3d(-$width, 0, 0);
+    // Close menu bar
+    flex-direction: row-reverse;
+    .bar {
+      border-radius: 0 5px 5px 0;
+      width: 25px;
+      .arrow {
+        border-width: 0 0 3px 3px;
+      }
+    }
+    &.open {
+      transform: translate3d(0vw, 0, 0);
+    }
+    &.close {
+      transform: translate3d(-$width, 0, 0);
+    }
+  }
+
+}

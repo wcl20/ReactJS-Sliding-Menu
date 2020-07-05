@@ -1,0 +1,52 @@
+.button-container {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+
+  div {
+    display: flex;
+  }
+
+  .button {
+    background-color: #696969;
+    border-width: 3px;
+    width: 150px;
+    height: 150px;
+    padding: 3px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // Button on hover effect
+    &:hover {
+      transition: transform .5s;
+      transform: rotate(720deg);
+      cursor: pointer;
+    }
+    // Button icon
+    .arrow {
+      border: solid white;
+      display: inline-block;
+      padding: 30px;
+    }
+    &.up {
+      .arrow {
+        border-width: 10px 0 0 10px;
+      }
+    }
+    &.down {
+      .arrow {
+        border-width: 0 10px 10px 0;
+      }
+    }
+    &.left {
+      .arrow {
+        border-width: 0 0 10px 10px;
+      }
+    }
+    &.right {
+      .arrow {
+        border-width: 10px 10px 0 0;
+      }
+    }
+  }
+}
